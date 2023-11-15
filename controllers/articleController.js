@@ -39,12 +39,6 @@ const getArticles = async (req, res) => {
     try {
       const articulos = await Article.find({});
 
-      if(req.params.ult){
-        articulos.limit(3);
-      }
-
-      articulos.sort({fecha: -1}).exec();
-
       if (!articulos) {
         return res.status(404).json({
           status: "error",
